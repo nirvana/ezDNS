@@ -24,7 +24,8 @@ defmodule Ezdns.Mixfile do
   defp deps do
     [
       {:flaky, github: "nirvana/flaky"},
-      {:couchie, github: "nirvana/couchie"}
+      {:couchie, github: "nirvana/couchie"},
+      { :erldns, github: "n1rvana/erl-dns" }  # This fork supports R17
     ]
   end
 end
