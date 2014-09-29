@@ -4,7 +4,7 @@ defmodule Ezdns.Mixfile do
   def project do
     [app: :ezdns,
      version: "0.0.1",
-     elixir: "~> 0.13.0",
+     elixir: "~> 1.0.0",
      deps: deps]
   end
 
@@ -12,19 +12,24 @@ defmodule Ezdns.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [ applications:  ~w(couchie flaky)a,
-      mod: { Ezdns, [] } ]
+    [applications: [:logger],
+     mod: {Ezdns, []}]
   end
 
-  # List all dependencies in the format:
+  # Dependencies can be Hex packages:
   #
-  # { :foobar, git: "https://github.com/elixir-lang/foobar.git", tag: "0.1" }
+  #   {:mydep, "~> 0.3.0"}
+  #
+  # Or git/path repositories:
+  #
+  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
   #
   # Type `mix help deps` for more examples and options
   defp deps do
     [
       {:flaky, github: "nirvana/flaky"},
-      {:couchie, github: "nirvana/couchie"}
+      {:couchie, github: "nirvana/couchie"},
+      {:erldns, github: "n1rvana/erl-dns" }  # This fork supports R17
     ]
   end
 end
